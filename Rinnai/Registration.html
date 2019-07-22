@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Rinnai Registration From</title>
+  <link rel= "stylesheet" href="style.css">
+</head>  
+      <body>
+	     <form method="post" action="Registration.php">
+         <div class="login-box">
+		    <img src="rinnai.png" width="180" height="80">
+            <h1>Registration</h1>
+			<div class="textbox">
+			    <i class="fa fa-user"></i>
+                <input type="text" placeholder="Username"  name="user">
+			</div>	
+
+            <div class="textbox">
+			    <i class="fa fa-lock"></i>
+                <input type="password" placeholder="Password" name="pass">
+            </div>
+         <p><?php echo $error;?></p>
+         <input class="btn" type="submit" name="register" value="Register">
+        
+        </div>
+		</form>
+       </body>
+</html>
