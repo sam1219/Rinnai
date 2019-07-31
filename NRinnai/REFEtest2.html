@@ -1,0 +1,201 @@
+<html>
+<head>
+<title>REFE TEST FORM PAGE 2</title>
+<link rel="stylesheet" href="stylesheet.css">
+<script type="text/javascript" src="scripts.js"></script>
+</head>
+<body onload="renderTime();">
+    <div id = "container">
+	     <header>
+		      <img src="Logo Red jpg format.jpg" width="300px" height="90px"/>
+			  <nav class= "nav">
+			       <ul>
+				      <li><a class="nav" href="homepage.html">Home</a>|</li>
+					  <li><a class="nav" href="DVtestform.html">Dv Test form</a>|</li>
+					  <li><a class="nav" href="REFEtest.html">RHFE test form</a>|</li>
+					  <li><a class="nav" href="REFEtest2.html">RHFE test form2</a>|</li>
+					  <li><a class="nav" href="#">Test report</a>|</li>
+					  <li><a class="nav" href="#">Test report2</a>|</li>
+					  <li><a class="nav" href="loginpage.html">Logout</a></li>
+				   </ul>
+              </nav>
+         </header>			  
+		
+        <div id="inside">
+                 <h1>REFE TEST FORM PAGE 2</h1>	 
+	             <form action="DVornon-RHFEform.php" method="POST">
+                 <table>
+                 <tr>
+				 <td class= "Icolumn"><label>Serail No:</label></td>
+				 <td class="rcolumn"><input  type = "text"  name = "serial" /></td>
+				 </tr>
+				 <tr>
+				 <td class= "Icolumn"><label>Gas Countrol No:</label></td>
+				 <td class="rcolumn"><input  type = "text"   name= "gascountrol" /></td>
+				 </tr>
+				 <tr>
+				 <td class= "Icolumn"><label>Model:</label></td>
+				 <td class="rcolumn"><select name = "model"><option></option></select></td>
+				 </tr>
+                 <tr>
+				 <td class= "Icolumn"><label>Destination:</label></td>
+				 <td class="rcolumn"><select name = "destination"><option></option></select></td>
+				 </tr>				
+				 <tr>
+				 <td class= "Icolumn"><label>Gas Type:</label></td>
+				 <td class="rcolumn"><select name = "gastype"><option></option></select></td>
+				 </tr>	
+				 
+				 <tr>
+				 <td class= "Icolumn"><label class= "Icolum">test no:</label></td>
+				 <td class="rcolumn"><input  type = "text"  name = "test" /></td>
+				 </tr>	
+				 </table>
+                 				 
+	           
+				 <h2>PICTURES LOADED
+				 <input type="checkbox" name="c1" onclick="showMe('div1', this)" checked />
+                 </h2>
+				 
+                 <div id="div1">
+                 <table>
+                 </table>				 
+				 </div>
+	     
+	            
+
+	
+				 <h2>POSTIION
+				 <input type="checkbox" name="c1" onclick="showMe('div2', this)" checked />
+                 </h2>
+				
+				 <div id="div2">
+				 <table>
+				 <tr>
+				 <td class= "Icolumn"><label>Position<label></td>
+				 <td class= "Icolumn"><label>Limit</label></td>
+				 <td class= "Icolumn"><label>1st Reading</label></td>
+				 <td class= "Icolumn"><label>2nd Reading</label></td>
+				 </tr> 
+                 <tr>
+				 <td class= "Icolumn"><label>1</label></td>
+				 <td class= "Icolumn"><label> <0.8M/S</label></td>
+				 <td class= "Icolumn"></td>
+				 <td class= "Icolumn"></td>
+				 </tr>
+				 <tr>
+				 <td class= "Icolumn"><label>2</label></td>
+				 <td class= "Icolumn"><label> <0.8M/S</label></td>
+				 <td class="rcolumn"><input  type = "text"  name = "stage1" /></td>
+				 <td class="rcolumn"><input  type = "text"  name = "stage1" /></td>
+				 </tr>
+				 <tr>
+				 <td class= "Icolumn"><label>3</label></td>
+				 <td class= "Icolumn"><label> <0.8M/S</label></td>
+				 <td class= "Icolumn"></td>
+				 <td class= "Icolumn"></td>
+				 </tr>
+				 <tr>
+				 <td class= "Icolumn"><label>4</label></td>
+				 <td class= "Icolumn"><label> <0.8M/S</label></td>
+				 <td class="rcolumn"><input  type = "text"  name = "stage1" /></td>
+				 <td class="rcolumn"><input  type = "text"  name = "stage1" /></td>
+				 </tr>
+				 <tr>
+				 <td class= "Icolumn"><label>5</label></td>
+				 <td class= "Icolumn"><label> <0.8M/S</label></td>
+				 <td class= "Icolumn"></td>
+				 <td class= "Icolumn"></td>
+				 </tr>
+				 <tr>
+				 <td class= "Icolumn"><label>6</label></td>
+				 <td class= "Icolumn"><label> <0.8M/S</label></td>
+				 <td class="rcolumn"><input  type = "text"  name = "stage1" /></td>
+				 <td class="rcolumn"><input  type = "text"  name = "stage1" /></td>
+				 </tr> 
+				 </table>
+                 </div>
+
+				 <h2>
+				 <input type="checkbox" name="c1" onclick="showMe('div3', this)" checked />
+                 </h2>
+				 <div id="div3">
+				 <table>
+				 <tr>
+				 <td class= "Icolumn"><label>No abnormal noise or vibration :</label></td>
+				 <td class="rcolumn"><select name=""><option>pass</option><option>fail</option></select></td>
+				 </tr>
+                 <tr>
+				 <td class= "Icolumn"><label>Destination:</label></td>
+				 <td class="rcolumn"><select name=""><option>pass</option><option>fail</option></select></td>
+				 </tr>			               
+				 </table>
+                 </div>
+	
+	
+                 <h2>
+				 <input type="checkbox" name="c1" onclick="showMe('div4', this)" checked />
+				 </h2>
+				 <div id="div4">
+				 <table>
+                 <tr>
+				 <td class= "Icolumn"><label>AIR LEAK TEST @100pa:</label></td>
+				 <td class="rcolumn"><input  type = "text"  name = "airlake" />lit/min</td>
+				 </tr>	               
+				 </table>
+				 </div>
+
+
+				 <h2>
+				 <input type="checkbox" name="c1" onclick="showMe('div5', this)" checked />
+				 </h2>
+				 
+				 <div id="div5">
+				 <table>
+                 <tr>
+				 <td class= "Icolumn"><label>Destination:</label>
+				 <select name=""><option>pass</option><option>fail</option></select></td>
+				 <td class="rcolumn"></td>
+				 </tr>
+                 </table>				 
+	             </div>
+                 
+				 <h2>
+				 <input type="checkbox" name="c1" onclick="showMe('div5', this)" checked />
+				 </h2>
+				 <table>
+				 <tr>
+				 <td rowspan=2><label>SPRING EXPRELIEF</label></td>
+				 <td  class= "Icolumn"><label>Top Left</label>
+				 <input  type = "text"  name = "topleft" />N</td>
+				 <td  class= "Icolumn"><label>Top Right</label>
+				 <input  type = "text"  name = "topleft" />N</td>
+				 </tr>
+				  
+				 <td  class= "Icolumn"><label>Bottom Left</label>
+				 <input  type = "text"  name = "bottomleft" />N</td>
+				 <td class= "Icolumn"><label>Bottom Right</label>
+				 <input  type = "text"  name = "bottomright" />N</td>
+				 </tr>
+                  </table>
+                 
+				 <h2>Svae Form</h2>
+				 <table>
+				 <tr>
+				 <td class="bottom"> <input type = "print"   value = "print" onclick ="window.print()">
+		         <input type = "submit"  value = "save"></td>
+				 </tr>
+                 <tr>
+				 <td><div id="clockDisplay" class="showTime"></div></td>
+				 </tr>						     			 
+		         </table>
+	</form>
+	
+	<footer>
+	     <p>Development by sam, cory, Ferrris & Ryan; 2019</p>	
+    </footer>
+
+
+</body>
+
+</html>

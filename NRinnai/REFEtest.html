@@ -1,0 +1,253 @@
+<html>
+<head>
+<title>DREFE TEST FORM PAGE</title>
+<link rel="stylesheet" href="refetest.css">
+<script type="text/javascript" src="scripts.js"></script>
+</head>
+<body onload="renderTime();">
+    <div id = "container">
+	     <header>
+		      <img src="Logo Red jpg format.jpg" width="300px" height="90px"/>
+			  <nav class= "nav">
+			       <ul>
+				      <li><a class="nav" href="homepage.html">Home</a>|</li>
+					  <li><a class="nav" href="DVtestform.html">Dv Test form</a>|</li>
+					  <li><a class="nav" href="REFEtest.html">RHFE test form</a>|</li>
+					  <li><a class="nav" href="REFEtest2.html">RHFE test form2</a>|</li>
+					  <li><a class="nav" href="#">Test report</a>|</li>
+					  <li><a class="nav" href="#">Test report2</a>|</li>
+					  <li><a class="nav" href="loginpage.html">Logout</a></li>
+				   </ul>
+              </nav>
+         </header>			  
+		
+        <div id="inside">
+                 <h1> RHFE Test Form</h1>	 
+	             <form action="DVornon-RHFEform.php" method="POST">
+                 <table>
+                 <tr>
+				 <td class= "Icolumn"><label>Serail No:</label></td>
+				 <td class="rcolumn"><input  type = "text"  name = "serial" /></td>
+				 </tr>
+				 <tr>
+				 <td class= "Icolumn"><label>Gas Countrol No:</label></td>
+				 <td class="rcolumn"><input  type = "text"   name= "gascountrol" /></td>
+				 </tr>
+				 <tr>
+				 <td class= "Icolumn"><label>Model:</label></td>
+				 <td class="rcolumn"><select name = "model"><option></option></select></td>
+				 </tr>
+                 <tr>
+				 <td class= "Icolumn"><label>Destination:</label></td>
+				 <td class="rcolumn"><select name = "destination"><option></option></select></td>
+				 </tr>				
+				 <tr>
+				 <td class= "Icolumn"><label>Gas Type:</label></td>
+				 <td class="rcolumn"><select name = "gastype"><option></option></select></td>
+				 </tr>	
+				 
+				 <tr>
+				 <td class= "Icolumn"><label class= "Icolum">test no:</label></td>
+				 <td class="rcolumn"><input  type = "text"  name = "test" /></td>
+				 </tr>	
+				 </table>
+                 				 
+	           
+				 <h2>PAT TEST
+				 <input type="checkbox" name="c1" onclick="showMe('div1', this)" checked />
+                 </h2>
+				 
+                 <div id="div1">
+                 <table>  				 
+				 <td class= "Icolumn"><label>Earth Continuity:</label></td>
+				 <td class="rcolumn"><input  type = "text"  name = "earthcontinuity" /></td>
+				 </tr>
+				 <tr>
+				 <td class= "Icolumn"><label>Insulation:</label></td>
+				 <td class="rcolumn"><input  type = "text"  name = "insulation" /></td>
+				 </tr>
+				 </table>
+				 </div>
+	     
+	            
+
+	
+				 <h2>BURNER SECONDARY PRESSURE
+				 <input type="checkbox" name="c1" onclick="showMe('div2', this)" checked />
+                 </h2>
+				
+				 <div id="div2">
+				 <table>
+				 <tr>
+				 <td class= "Icolumn"><label>IGnition:<label></td>
+				 <td class="rcolumn"><input  type = "text"  name = "ignition" /></td>
+				 </tr> 
+                  <tr>
+				 <td class= "Icolumn"><label>PL (Stage 1):</label></td>
+				 <td class="rcolumn"><input  type = "text"  name = "stage1" /></td>
+				 </tr>
+                 <tr>
+				 <td class= "Icolumn"><label>PF (STAGE 3):</label></td>
+				 <td class="rcolumn"><input  type = "text"  name = "stage3" /></td>
+				 </tr>
+				 <tr>
+				 <td class= "Icolumn"><label>PA (STAGE 4):</label></td>
+				 <td class="rcolumn"><input  type = "text"  name = "stage4" /></td>
+				 </tr>
+				 <tr>
+				 <td class= "Icolumn"><label>PH (STAGE7):</label></td>
+				 <td class="rcolumn"><input  type = "text"  name = "stage7" /></td>
+				 </tr>
+				 </table>
+                 </div>
+
+
+				 <h2>POV CHARACTERISTIC
+				 <input type="checkbox" name="c1" onclick="showMe('div3', this)" checked />
+                 </h2>
+				
+				 <div id="div3">
+				 <table>
+				 <tr>
+				 <td class= "Icolumn"><label>STAGE 70:</label></td>
+				 <td class="rcolumn"><input  type = "text"  name = "stage70" /></td>
+				 </tr> 
+                 <tr>
+				 <td class= "Icolumn"><label>STAGE 10:</label></td>
+				 <td class="rcolumn"><input  type = "text"  name = "stage10" /></td>
+				 </tr>               
+				 <tr>
+				 <td class= "Icolumn"><label>PRE-PURGE PERIOD: </label></td>
+				 <td class="rcolumn"><input  type = "text"  name = "period" /></td>
+				 </tr> 
+                 <tr>
+				 <td class= "Icolumn"><label>CONV FAN ON:</label></td>
+				 <td class="rcolumn"><input  type = "text"  name = "confanon" /></td>
+				 </tr> 
+				 <tr>
+				 <td class= "Icolumn"><label>IGNITION TIME:</label></td>
+				 <td class="rcolumn"><input  type = "text"  name = "ignitiontime" /></td>
+				 </tr> 
+				 <tr>
+				 <td class= "Icolumn"><label>CUT OFF RESPONSE:</label></td>
+				 <td class="rcolumn"><input  type = "text"  name = "response" /></td>
+				 </tr> 
+				 </table>
+                 </div>
+	
+	
+                 <h2>TABLE
+				 <input type="checkbox" name="c1" onclick="showMe('div4', this)" checked />
+				 </h2>
+                 
+				 
+				 <div id="div4">
+				 <table>
+                 <tr>
+				 <td class= "Icolumn"></td>
+				 <td class= "Icolumn"></td>
+				 <td class= "Icolumn"><label>STAGE 7</label></td>
+				 <td class= "Icolumn"><label>STAGE 4</label></td>
+				 <td class= "Icolumn"><label>STAGE 3</label></td>
+				 <td class= "Icolumn"><label>STAGE 1</label></td>
+				 <td class= "Icolumn"><label>EXTRALOW</label></td>
+				 </tr> 
+                 <tr>
+				 <td rowspan="2" class= "Icolumn"><label>COMBUSTION FAN RPM</label></td>
+				 <td class= "Icolumn"><label>STANDARD</label></td>
+				 <td class= "Icolumn"><label>1810~2010</label></td>
+				 <td class= "Icolumn"></td>
+				 <td class= "Icolumn"><label>1510~1710</label></td>
+				 <td class= "Icolumn"><label>980~1180</label></td>
+				 <td></td>
+				 </tr>               
+				 <tr>
+				 <td class= "Icolumn"><label>Results</label></td>
+				 <td class="rcolumn"><input  type = "text"  name = "cfr" /></td>
+				 <td class= "Icolumn"></td>
+				 <td class="rcolumn"><input  type = "text"  name = "cfr1" /></td>
+				 <td class="rcolumn"><input  type = "text"  name = "cfr2" /></td>
+				 <td class= "Icolumn"></td>
+				 </tr>  
+				 <tr>
+				 <td rowspan="2" class= "Icolumn"><label>COMBUSTION FAN RPM</label></td>
+				 <td class= "Icolumn"><label>STANDARD</label></td>
+				 <td class= "Icolumn"><label>970~1130</label></td>
+				 <td class= "Icolumn"></td>
+				 <td class= "Icolumn"></td>
+				 <td class= "Icolumn"></td>
+				 <td></td>
+				 </tr>    
+				 <tr>
+				 <td class= "Icolumn"><label>Results</label></td>
+				 <td class= "rcolumn"><input  type = "text"  name = "rmp" /></td>
+				 <td class= "Icolumn"></td>
+				 <td class= "Icolumn"></td>
+				 <td class= "Icolumn"></td>
+				 <td class= "Icolumn"></td>
+				 </tr>
+				 <tr>
+				 <td rowspan="2" class= "Icolumn"><label>ELECTRIC POWER WATTS</label></td>
+				 <td class= "Icolumn"><label>STANDARD</label></td>
+				 <td class= "Icolumn"><label>75~90</label></td>
+				 <td class= "Icolumn"></td>
+				 <td class= "Icolumn">53~63</td>
+				 <td class= "Icolumn">42~52</td>
+				 <td></td>
+				 </tr>
+				 <tr>
+				 <td class= "Icolumn"><label>Results</label></td>
+				 <td class= "rcolumn"><input  type = "text"  name = "watts" /></td>
+				 <td class= "Icolumn"></td>
+				 <td class= "Icolumn"></td>
+				 <td class= "rcolumn"><input  type = "text"  name = "watts1" /></td>
+				 <td class= "rcolumn"><input  type = "text"  name = "watts2" /></td>
+				 </tr>
+				 <tr>
+				 <td rowspan="2" class= "Icolumn"><label>Gas FLOW LITERS/MINUTE</label></td>
+				 <td class= "Icolumn"><label>STANDARD</label></td>
+				 <td class= "Icolumn"><label>16.0~19.0</label></td>
+				 <td class= "Icolumn"><label>12.0~14.0</label></td>
+				 <td class= "Icolumn">9.0~12.0</td>
+				 <td class= "Icolumn">4.0~6.0</td>
+				 <td class= "Icolumn">0.2~1.5</td>
+				 </tr>
+				 <tr>
+				 <td class= "Icolumn"><label>Results</label></td>
+				 <td class= "rcolumn"><input  type = "text"  name = "litres" /></td>
+				 <td class= "rcolumn"><input  type = "text"  name = "litres1" /></td>
+				 <td class= "rcolumn"><input  type = "text"  name = "litres2" /></td>
+				 <td class= "rcolumn"><input  type = "text"  name = "litres3" /></td>
+				 <td class= "rcolumn"><input  type = "text"  name = "litres4" /></td>
+				 </tr>
+				 <tr>
+				 </table>
+				 </div>
+				 
+				
+				 <h2>Comments:</h2>
+				 
+				 <table>
+				 <tr>
+				 <td colspan="2"><textarea  maxlength="1000"  cols ="80" rows ="6" name = "text" >Message goes here.</textarea></td>
+				 </tr>
+                 
+                 <tr>
+				 <td rowspan="2">TEST ID:<select name = "testid"><option></option></select></td>
+				 <td class="bottom"> <input type = "print"   value = "print" onclick ="window.print()">
+		         <input type = "submit"  value = "save"></td>
+				 </tr>
+                 <tr>
+				 <td><div id="clockDisplay" class="showTime"></div></td>
+				 </tr>						     			 
+		         </table>
+	</form>
+	
+	<footer>
+	     <p>Development by sam, cory, Ferrris & Ryan; 2019</p>	
+    </footer>
+
+
+</body>
+
+</html>

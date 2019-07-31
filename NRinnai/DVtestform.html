@@ -1,0 +1,184 @@
+<html>
+<head>
+<title>DV test form</title>
+<link rel="stylesheet" href="stylesheet.css">
+<script type="text/javascript" src="scripts.js"></script>
+</head>
+<body onload="renderTime();">
+    <div id = "container">
+	     <header>
+		      <img src="Logo Red jpg format.jpg" width="300px" height="90px"/>
+			  <nav class= "nav">
+			       <ul>
+				      <li><a class="nav" href="homepage.html">Home</a>|</li>
+					  <li><a class="nav" href="DVtestform.html">Dv Test form</a>|</li>
+					  <li><a class="nav" href="REFEtest.html">RHFE test form</a>|</li>
+					  <li><a class="nav" href="REFEtest2.html">RHFE test form2</a>|</li>
+					  <li><a class="nav" href="#">Test report</a>|</li>
+					  <li><a class="nav" href="#">Test report2</a>|</li>
+					  <li><a class="nav" href="loginpage.html">Logout</a></li>
+				   </ul>
+              </nav>
+         </header>			  
+		
+        <div id="inside">
+                 <h1> DV test form</h1>	 
+	             <form action="DVornon-RHFEform.php" method="POST">
+                 <table>
+                 <tr>
+				 <td class= "Icolumn"><label>Serail No:</label></td>
+				 <td class="rcolumn"><input  type = "text"  name = "serial" /></td>
+				 </tr>
+				 <tr>
+				 <td class= "Icolumn"><label>Gas Countrol No:</label></td>
+				 <td class="rcolumn"><input  type = "text"   name= "gascountrol" /></td>
+				 </tr>
+				 <tr>
+				 <td class= "Icolumn"><label>Model:</label></td>
+				 <td class="rcolumn"><select name = "model"><option></option></select></td>
+				 </tr>
+                 <tr>
+				 <td class= "Icolumn"><label>Destination:</label></td>
+				 <td class="rcolumn"><select name = "destination"><option></option></select></td>
+				 </tr>				
+				 <tr>
+				 <td class= "Icolumn"><label>Gas Type:</label></td>
+				 <td class="rcolumn"><select name = "gastype"><option></option></select></td>
+				 </tr>	
+				 
+				 <tr>
+				 <td class= "Icolumn"><label class= "Icolum">test no:</label></td>
+				 <td class="rcolumn"><input  type = "text"  name = "test" /></td>
+				 </tr>	
+				 </table>
+                 				 
+	           
+				 <h2>PAT TEST
+				 <input type="checkbox" name="c1" onclick="showMe('div1', this)" checked />
+                 </h2>
+				 
+                 <div id="div1">
+                 <table>  				 
+				 <td class= "Icolumn"><label>Earth Continuity:</label></td>
+				 <td class="rcolumn"><input  type = "text"  name = "earthcontinuity" /></td>
+				 </tr>
+				 <tr>
+				 <td class= "Icolumn"><label>Insulation:</label></td>
+				 <td class="rcolumn"><input  type = "text"  name = "insulation" /></td>
+				 </tr>
+				 </table>
+				 </div>
+	     
+	            
+
+	
+				 <h2>BURNER PRESSURE SETTING
+				 <input type="checkbox" name="c1" onclick="showMe('div2', this)" checked />
+                 </h2>
+				
+				 <div id="div2">
+				 <table>
+				 <tr>
+				 <td class= "Icolumn"><label>Line Presure:<label></td>
+				 <td class="rcolumn"><input  type = "text"  name = "linepresure" /></td>
+				 </tr> 
+                  <tr>
+				 <td class= "Icolumn"><label>Set Pressure High:</label></td>
+				 <td class="rcolumn"><input  type = "text"  name = "setpressurehigh" /></td>
+				 </tr>
+                 <tr>
+				 <td class= "Icolumn"><label>Set Pressure Low:</label></td>
+				 <td class="rcolumn"><input  type = "text"  name = "setpressurelow" /></td>
+				 </tr>
+				 </table>
+                 </div>
+
+				 <h2>FLAME ROD CURRENT
+				 <input type="checkbox" name="c1" onclick="showMe('div3', this)" checked />
+                 </h2>
+				
+				 <div id="div3">
+				 <table>
+				 <tr>
+				 <td class= "Icolumn"><label>Stage:</label></td>
+				 <td class="rcolumn"><input  type = "text"  name = "stage1" /></td>
+				 </tr> 
+                 <tr>
+				 <td class= "Icolumn"><label>Front:</label></td>
+				 <td class="rcolumn"><input  type = "text"  name = "front1" /></td>
+				 </tr>               
+				 <tr>
+				 <td class= "Icolumn"><label>Stage: </label></td>
+				 <td class="rcolumn"><input  type = "text"  name = "stage" /></td>
+				 </tr> 
+                 <tr>
+				 <td class= "Icolumn"><label>Front:</label></td>
+				 <td class="rcolumn"><input  type = "text"  name = "front" /></td>
+				 </tr> 
+				 </table>
+                 </div>
+	
+	
+                 <h2>RUN LEAKAG
+				 <input type="checkbox" name="c1" onclick="showMe('div4', this)" checked />
+				 </h2>
+                 
+				 
+				 <div id="div4">
+				 <table>
+                 <tr>
+				 <td class= "Icolumn"><label>Hight:</label></td>
+				 <td class="rcolumn"><input  type = "text"  name = "hight" /></td>
+				 </tr> 
+                 <tr>
+				 <td class= "Icolumn"><label>Stage:</label></td>
+				 <td class="rcolumn"><input  type = "text"  name = "low" /></td>
+				 </tr>               
+				 </table>
+				 </div>
+
+
+				 <h2>RUN CURRENT
+				 <input type="checkbox" name="c1" onclick="showMe('div5', this)" checked />
+				 </h2>
+				 
+				 <div id="div5">
+				 <table>
+                 <tr>
+				 <td class= "Icolumn"><label>Hight:</label></td>
+				 <td class="rcolumn"><input  type = "text"  name = "hight1" /></td>
+				 </tr> 
+                 <tr>
+				 <td class= "Icolumn"><label>Stage:</label></td>
+				 <td class="rcolumn"><input  type = "text"  name = "low1" /></td>
+				 </tr> 
+                 </table>				 
+	             </div>
+                 
+				
+				 <h2>Comments:</h2>
+				 
+				 <table>
+				 <tr>
+				 <td colspan="2"><textarea  maxlength="1000"  cols ="80" rows ="6" name = "text" >Message goes here.</textarea></td>
+				 </tr>
+                 
+                 <tr>
+				 <td rowspan="2">TEST ID:<select name = "testid"><option></option></select></td>
+				 <td class="bottom"> <input type = "print"   value = "print" onclick ="window.print()">
+		         <input type = "submit"  value = "save"></td>
+				 </tr>
+                 <tr>
+				 <td><div id="clockDisplay" class="showTime"></div></td>
+				 </tr>						     			 
+		         </table>
+	</form>
+	
+	<footer>
+	     <p>Development by sam, cory, Ferrris & Ryan; 2019</p>	
+    </footer>
+
+
+</body>
+
+</html>
