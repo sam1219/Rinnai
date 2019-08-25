@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    HOME
+{% endblock %}
+{% block head %}
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet">
+    <style>
+        .tests {
+            width: 80%;
+            margin: 10px 10%;
+        }
+
+        .panel {
+            border: 1px solid #dcdee2;
+            margin: 10px 0;
+            border-radius: 10px;
+        }
+
+        .panel-title {
+            width: 100%;
+            padding: 10px;
+            background-color: #f8f8f9;
+        }
+
+        .panel-body {
+            width: 100%;
+            padding: 10px;
+
+        }
+
+        .panel-heading {
+            background-color: #f8f8f9;
+            align-items: center;
+            padding-right: 10px;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .panel-heading a {
+            font-weight: bold;
+            color: red;
+        }
+    </style>
+{% endblock %}
+{% block body %}
+    {% include 'nav.html' %}
+    <div class="tests">
+        {% for t in tests %}
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        {{ t.test_type }}
+                    </h3>
+                    <a href="{% url 'delete' %}?id={{ t.id }}&type={{ t.test_type }}">delete</a>
+                </div>
+                <div class="panel-body">
+                    <a href="{% url 'report' %}?id={{ t.id }}&type={% ifequal t.test_type 'Dv Test' %}0{% else %}1{% endifequal %}">{{ t.test_type }}</a>
+                    <span> at {{ t.add_time }}</span>
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+{% endblock %}
