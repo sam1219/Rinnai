@@ -1,0 +1,734 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    RHFE TEST FORM
+{% endblock %}
+{% block head %}
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet">
+    <link href="{% static 'css/table.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    {% include 'nav.html' %}
+    <form id="myForm" method="post" action="{% url 'rhef' %}" class="table">
+        {% csrf_token %}
+        <input type="text" hidden value="RHEF Test" name="test_type">
+        <div class="trow divider">
+            <div class="tentry border">
+                <div class="text">SERIAL NO</div>
+                <input name="serial_no" type="text">
+            </div>
+            <div class="tentry border">
+                <div class="text">GAS CONTROL NO.</div>
+                <input name="gas_control_no" type="text">
+            </div>
+        </div>
+
+        <input name="model" id="input_model" type="text" hidden>
+        <input name="destination" id="input_destination" type="text" hidden>
+        <input name="gas_type" id="input_gas_type" type="text" hidden>
+        <div class="trow divider">
+            <div class="tentry border justify_center">
+                <div class="text">MODEL</div>
+                <select id="select_model">
+                    {% for m in model %}
+                        <option value="{{ m.name }}">{{ m.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="tentry border justify_center">
+                <div class="text">DESTINATION</div>
+                <select id="select_destination">
+                    {% for m in destination %}
+                        <option value="{{ m.name }}">{{ m.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="tentry border justify_center">
+                <div class="text">GAS TYPE</div>
+                <select id="select_gas_type">
+                    {% for m in gas_type %}
+                        <option value="{{ m.name }}">{{ m.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="trow divider">
+            <div class="tentry border ">
+                <div class="text">VOLTAGE 230V±3</div>
+
+            </div>
+            <input type="text" name="frequency" value="50Hz" hidden>
+            <input type="text" name="voltage" value="230V±3" hidden>
+            <div class="tentry border ">
+                <div class="text">FREQUENCY: 50Hz</div>
+
+            </div>
+            <div class="tentry border ">
+                <div class="text">FLUE 5-F</div>
+
+            </div>
+        </div>
+
+        <div class="tcol border">
+            <div class="trow">
+                <div class="tentry">
+                    <div class="text">
+                        TEST NO
+                    </div>
+                    <input value="1" id="pageNumber" type="text">
+                    <input class="fristPage pageBtn" type="button" value="|<">
+                    <input class="fristPage pageBtn" type="button" value="<">
+                    <input class="lastPage pageBtn" type="button" value=">">
+                    <input class="lastPage pageBtn" type="button" value=">|">
+                </div>
+            </div>
+
+
+            <div id="page1">
+                <div class="trow table-item">
+                    <div class="tentry border">
+                        <div style="width: 100%;text-align: center;font-weight: bold;font-size: 20px">
+                            PAT TEST
+                        </div>
+                    </div>
+                </div>
+                <div class="trow">
+                    <div class="tentry border">
+                        <div class="text">EARTH CONTINUITY</div>
+                        <input name="earth_continuity" type="text"> Ω
+                    </div>
+                    <div class="tentry border">
+                        <div class="text">INSULATION</div>
+                        <input name="insulation" type="text"> Ω
+                    </div>
+                </div>
+                <div class="trow">
+                    <div class="tentry">
+                        <div class="text">LINE PRESSURE</div>
+                        <input name="line_pressure" type="text"> kpa
+                    </div>
+                </div>
+                <div class="trow">
+                    <div class="col_entry">
+                        <div class="table-item">
+                            <div class="tentry border">
+                                <div class="text">BURNER SECONDARY PRESSURE</div>
+                            </div>
+                            <div class="tentry space_between border">
+                                <div class="text-small">IGNITION</div>
+                                <div><input name="ignition" type="text"></div>
+                            </div>
+                            <div class="tentry space_between border">
+                                <div class="text-small">PL(STAGE 1)</div>
+                                <div><input name="pl_stage1" type="text"></div>
+                            </div>
+                            <div class="tentry space_between border">
+                                <div class="text-small">PF(STAGE 3)</div>
+                                <div><input name="pl_stage3" type="text"></div>
+                            </div>
+                            <div class="tentry space_between border">
+                                <div class="text-small">PA(STAGE 4)</div>
+                                <div><input name="pl_stage4" type="text"></div>
+                            </div>
+                            <div class="tentry space_between border">
+                                <div class="text-small">PH(STAGE 7)</div>
+                                <div><input name="pl_stage7" type="text"></div>
+                            </div>
+                        </div>
+                        <div class="table-item">
+                            <div class="tentry border">
+                                <div class="text">POV CHARACTERISTIC</div>
+                            </div>
+                            <div class="tentry space_between border">
+                                <div class="text-small">STAGE 70</div>
+                                <div><input name="stage_70" type="text"></div>
+                            </div>
+                            <div class="tentry space_between border">
+                                <div class="text-small">STAGE 10</div>
+                                <div><input name="stage_10" type="text"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col_entry table-item">
+                        <div class="tentry border">
+                            <div class="text">__</div>
+                        </div>
+                        <div class="tentry space_between border">
+                            <div class="text-small">PRE-PURGE PERIOD</div>
+                            <div><input name="pre_purge_period" type="text"> sec</div>
+                        </div>
+                        <div class="tentry space_between border">
+                            <div class="text-small">CONY FAN ON</div>
+                            <div><input name="cony_fan_on" type="text"> sec</div>
+                        </div>
+                        <div class="tentry space_between border">
+                            <div class="text-small">IGNITION TIME</div>
+                            <div><input name="ignition_time" type="text"> sec</div>
+                        </div>
+                        <div class="tentry space_between border">
+                            <div class="text-small">CUT OFF RESPONSE</div>
+                            <div><input name="cut_off_response" type="text"> sec</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-item">
+                    <div class="trow">
+                        <div class="tentry border">
+                            <div class="text">_</div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="text">_</div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="text">STAGE 7</div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="text">STAGE 4</div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="text">STAGE 3</div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="text">STAGE 1</div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="text">EXTRA LOW</div>
+                        </div>
+                    </div>
+                    <div class="trow xytable">
+                        <div class="tentry border">
+                            <div class="text">Combustion fan RPM</div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="col_entry">
+                                <div class="tentry">
+                                    <div class="text-small">Standard</div>
+                                </div>
+                                <div class="tentry">
+                                    <div class="text-small">Results</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="col_entry">
+                                <div class="tentry">
+                                    <div class="text-small">1810-2010</div>
+                                </div>
+                                <div class="tentry">
+                                    <input name="combustion_stage_7" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="col_entry">
+                                <div class="tentry">
+                                    <div class="text-small">_</div>
+                                </div>
+                                <div class="tentry">
+                                    <input type="text" disabled>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="col_entry">
+                                <div class="tentry">
+                                    <div class="text-small">1510-1710</div>
+                                </div>
+                                <div class="tentry">
+                                    <input name="combustion_stage_3" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="col_entry">
+                                <div class="tentry">
+                                    <div class="text-small">980-1180</div>
+                                </div>
+                                <div class="tentry">
+                                    <input name="combustion_stage_1" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="col_entry">
+                                <div class="tentry">
+                                    <div class="text-small">_</div>
+                                </div>
+                                <div class="tentry">
+                                    <input type="text" disabled>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trow xytable">
+                        <div class="tentry border">
+                            <div class="text">Convection fan RPM</div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="col_entry">
+                                <div class="tentry">
+                                    <div class="text-small">Standard</div>
+                                </div>
+                                <div class="tentry">
+                                    <div class="text-small">Results</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="col_entry">
+                                <div class="tentry">
+                                    <div class="text-small">970-1130</div>
+                                </div>
+                                <div class="tentry">
+                                    <input name="convection_stage_7" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="col_entry">
+                                <div class="tentry">
+                                    <div class="text-small">_</div>
+                                </div>
+                                <div class="tentry">
+                                    <input type="text" disabled>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="col_entry">
+                                <div class="tentry">
+                                    <div class="text-small">_</div>
+                                </div>
+                                <div class="tentry">
+                                    <input type="text" disabled>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="col_entry">
+                                <div class="tentry">
+                                    <div class="text-small">_</div>
+                                </div>
+                                <div class="tentry">
+                                    <input type="text" disabled>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="col_entry">
+                                <div class="tentry">
+                                    <div class="text-small">_</div>
+                                </div>
+                                <div class="tentry">
+                                    <input type="text" disabled>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trow xytable">
+                        <div class="tentry border">
+                            <div class="text">Electric Power WATTS</div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="col_entry">
+                                <div class="tentry">
+                                    <div class="text-small">Standard</div>
+                                </div>
+                                <div class="tentry">
+                                    <div class="text-small">Results</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="col_entry">
+                                <div class="tentry">
+                                    <div class="text-small">75-90</div>
+                                </div>
+                                <div class="tentry">
+                                    <input name="electric_stage_7" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="col_entry">
+                                <div class="tentry">
+                                    <div class="text-small">_</div>
+                                </div>
+                                <div class="tentry">
+                                    <input type="text" disabled>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="col_entry">
+                                <div class="tentry">
+                                    <div class="text-small">_</div>
+                                </div>
+                                <div class="tentry">
+                                    <input type="text" disabled>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="col_entry">
+                                <div class="tentry">
+                                    <div class="text-small">53-63</div>
+                                </div>
+                                <div class="tentry">
+                                    <input name="electric_stage_1" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="col_entry">
+                                <div class="tentry">
+                                    <div class="text-small">42-52</div>
+                                </div>
+                                <div class="tentry">
+                                    <input name="electric_stage_low" type="text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trow xytable">
+                        <div class="tentry border">
+                            <div class="text-small">Gas Flow Litres/Minute</div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="col_entry">
+                                <div class="tentry">
+                                    <div class="text-small">Standard</div>
+                                </div>
+                                <div class="tentry">
+                                    <div class="text-small">Results</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="col_entry">
+                                <div class="tentry">
+                                    <div class="text-small">16.0-19.0</div>
+                                </div>
+                                <div class="tentry">
+                                    <input name="gas_flow_stage_7" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="col_entry">
+                                <div class="tentry">
+                                    <div class="text-small">12.0-14.0</div>
+                                </div>
+                                <div class="tentry">
+                                    <input name="gas_flow_stage_4" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="col_entry">
+                                <div class="tentry">
+                                    <div class="text-small">9.0-12.0</div>
+                                </div>
+                                <div class="tentry">
+                                    <input name="gas_flow_stage_3" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="col_entry">
+                                <div class="tentry">
+                                    <div class="text-small">4.0-6.0</div>
+                                </div>
+                                <div class="tentry">
+                                    <input name="gas_flow_stage_1" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="col_entry">
+                                <div class="tentry">
+                                    <div class="text-small">0.2-1.5</div>
+                                </div>
+                                <div class="tentry">
+                                    <input name="gas_flow_stage_low" type="text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div style="display: none" id="page2">
+                <!-- table 4*6 -->
+                <div class="trow">
+                    <div class="tentry center">
+                        <img src="../static/img/01.jpg">
+                    </div>
+                </div>
+                <div class="table-item">
+                    <div class="trow">
+                        <div class="tentry border">
+                            <div class="text">POSITION</div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="text">LIMIT</div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="text">1 READING</div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="text">2 READING</div>
+                        </div>
+                    </div>
+                    <div class="trow">
+                        <div class="tentry border">
+                            <div class="text-small">1</div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="text-small"><0.8 m/s²</div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="text-small">_</div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="text-small">_</div>
+                        </div>
+                    </div>
+                    <div class="trow">
+                        <div class="tentry border">
+                            <div class="text-small">2</div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="text-small"><0.8 m/s²</div>
+                        </div>
+                        <div class="tentry border">
+                            <input name="position_2_reading1" type="text">
+                        </div>
+                        <div class="tentry border">
+                            <input name="position_2_reading2" type="text">
+                        </div>
+                    </div>
+                    <div class="trow">
+                        <div class="tentry border">
+                            <div class="text-small">3</div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="text-small"><0.8 m/s²</div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="text-small">_</div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="text-small">_</div>
+                        </div>
+                    </div>
+                    <div class="trow">
+                        <div class="tentry border">
+                            <div class="text-small">4</div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="text-small"><0.8 m/s²</div>
+                        </div>
+                        <div class="tentry border">
+                            <input name="position_4_reading1" type="text">
+                        </div>
+                        <div class="tentry border">
+                            <input name="position_4_reading2" type="text">
+                        </div>
+                    </div>
+                    <div class="trow">
+                        <div class="tentry border">
+                            <div class="text-small">5</div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="text-small"><0.8 m/s²</div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="text-small">_</div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="text-small">_</div>
+                        </div>
+                    </div>
+                    <div class="trow">
+                        <div class="tentry border">
+                            <div class="text-small">6
+                            </div>
+                        </div>
+                        <div class="tentry border">
+                            <div class="text-small"><0.8 m/s²</div>
+                        </div>
+                        <div class="tentry border">
+                            <input name="position_6_reading1" type="text">
+                        </div>
+                        <div class="tentry border">
+                            <input name="position_6_reading2" type="text">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- table 3-->
+                <div class="trow">
+                    <div class="col_entry">
+                        <div class="tentry space_between border">
+                            <div class="text-small">NO abnormal noise of vibration</div>
+                            <select id="select_vibration">
+                                <option value="PASS">PASS</option>
+                                <option value="FAILED">FAILED</option>
+                            </select>
+                        </div>
+                        <div class="tentry space_between border">
+                            <div class="text-small">Remote Control(test operation)</div>
+                            <select id="select_remote_control">
+                                <option value="PASS">PASS</option>
+                                <option value="FAILED">FAILED</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col_entry">
+
+                        <div class="tentry space_between border">
+                            <div class="text-small">AIR LEAK TEST @100Pa</div>
+                            <div><input name="air_leak_test" type="text"> lit/min</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- flame picture-->
+                <div class="trow">
+                    <div class="tentry space_between border">
+                        <div class="text">Flame PICTURE</div>
+                        <select id="select_flame_picture">
+                            <option value="PASS">PASS</option>
+                            <option value="FAILED">FAILED</option>
+                        </select>
+                    </div>
+                    <div class="tentry center">
+                        <img style="height: 80px;width: 200px" src="../static/img/flame.jpeg">
+                    </div>
+                </div>
+                <!-- bottom table-->
+                <div class="trow xytable table-item">
+                    <div class="tentry border">
+                        <div class="text">SPRING EXP RELIEF</div>
+                    </div>
+                    <div class="tentry border">
+                        <div class="col_entry">
+                            <div class="tentry space_between">
+                                <div class="text-small">TOP LEFT</div>
+                                <input name="relief_top_left" type="text">
+                            </div>
+                            <div class="tentry space_between">
+                                <div class="text-small">BOTTOM LEFT</div>
+                                <input name="relief_bottom_left" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tentry border">
+                        <div class="col_entry">
+                            <div class="tentry space_between">
+                                <div class="text-small">TOP RIGHT</div>
+                                <input name="relief_top_right" type="text">
+                            </div>
+                            <div class="tentry space_between">
+                                <div class="text-small">BOTTOM RIGHT</div>
+                                <input name="relief_bottom_right" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col_entry" style="margin-top: 10px">
+                <div class="tentry border">
+                    <div class="text">COMMENTS</div>
+                </div>
+                <div class="tentry border">
+                    <textarea name="comments" style="width: 100%;height: 50px"></textarea>
+                </div>
+            </div>
+            <input type="text" name="flame_picture" value="PASS" id="input_flame_picture" hidden>
+            <input type="text" name="vibration" value="PASS" id="input_vibration" hidden>
+            <input type="text" name="remote_control" value="PASS" id="input_remote_control" hidden>
+            <div class="trow">
+                <div class="tentry border">
+                    <div class="text">TESTER ID</div>
+                    <select>
+                        <option value="{{ test_id }}">{{ test_id }}</option>
+                    </select>
+                    <input hidden type="text" value="{{ test_id }}" name="test_id">
+                </div>
+                <div class="row_entry" style="width: 100%">
+                    <div style="display: flex;flex-direction: row;justify-content: space-around" class="tentry border">
+                        <button type="button" id="save" class="btn_save">Save</button>
+                        <button type="button" id="print" class="btn_print">PRINT</button>
+                    </div>
+                    <div style="display: flex;flex-direction: row;justify-content: center" class="tentry border">
+                        <div class="text-small">{{ time }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script>
+        function init() {
+            let tables = document.querySelectorAll(".table-item");
+            for (let i of tables)
+                i.addEventListener('dblclick', function () {
+                    i.style.display = "none";
+                });
+            let first = document.querySelectorAll(".fristPage");
+            for (let i of first) {
+                i.addEventListener('click', function () {
+                    document.getElementById("page1").style.display = "";
+                    document.getElementById("page2").style.display = "none";
+                    document.getElementById("pageNumber").value = 1;
+                })
+            }
+            let last = document.querySelectorAll(".lastPage");
+            for (let i of last) {
+                i.addEventListener('click', function () {
+                    document.getElementById("page2").style.display = "";
+                    document.getElementById("page1").style.display = "none";
+                    document.getElementById("pageNumber").value = 2;
+                })
+            }
+            $("#input_model").val($("#select_model option")[0].text);
+            $("#input_destination").val($("#select_destination option")[0].text);
+            $("#input_gas_type").val($("#select_gas_type option")[0].text);
+
+
+            $("#save").click(function () {
+                let form = document.getElementById('myForm');
+                form.submit();
+            });
+            $("#print").click(function () {
+                window.print();
+            })
+
+        }
+
+        function bindValue(select_id, input_id) {
+            $(`#${select_id} option`).change(function () {
+                let val = $(`#${select_id} option:selected`).val();
+                $(`#${input_id}`).val(val);
+            });
+        }
+
+        init();
+
+        bindValue('select_model', 'input_model');
+        bindValue('select_destination', 'input_destination');
+        bindValue('select_gas_type', 'input_destination');
+        bindValue('select_flame_picture', 'input_flame_picture');
+        bindValue('select_vibration', 'input_vibration');
+        bindValue('select_remote_control', 'input_remote_control');
+
+    </script>
+{% endblock %}
+
+
+

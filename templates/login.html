@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    Sign In
+{% endblock %}
+{% block head %}
+     <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+{% block body %}
+    <div>
+        <div class="be-content pren">
+
+            <div class="ioc_text">
+                <h3>TEST SYSTEM</h3>
+                <span>Please login to your account</span>
+            </div>
+
+            <div>
+                <form action="{% url 'login' %}" method="post">
+                    {% csrf_token %}
+                    <div class="br-content">
+
+                        <div class="input-group mb-4 bootint">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-user"></i></span>
+                            </div>
+                            <input type="text" class="form-control" name="username" placeholder="Tester Name">
+                        </div>
+
+                        <div class="input-group mb-4 bootint">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-unlock-alt"></i></span>
+                            </div>
+                            <input type="password" class="form-control" name="password" placeholder="Test Id">
+                        </div>
+
+
+                        <div class="br-text">
+                            <p>
+
+                                <a href="{% url 'register' %}">Sign Up</a>
+                            </p>
+                        </div>
+                        {% if errors %}
+                            <div>
+                                {% for item in errors %}
+                                    <p style="color: red">{{ item }}</p>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                        <div style="padding-top: 10px">
+                            <input type="submit" class="btn" value="Sign In">
+                        </div>
+                        <div class="be-con">
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
